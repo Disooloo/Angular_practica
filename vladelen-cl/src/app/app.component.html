@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>My project Angular</h1>
+</div>
+
+<hr>
+<button (click)="toogleCard()"> Show cards </button>
+<hr>
+
+<div *ngIf="toogleCards; else cardHidden " >
+  <app-card *ngFor="let card of cards; let idx = index"
+            [index]="idx+1"
+  [_card]="card"></app-card>
+</div>
+
+<ng-template #cardHidden>
+  <p>Cards are hidden</p>
+</ng-template>

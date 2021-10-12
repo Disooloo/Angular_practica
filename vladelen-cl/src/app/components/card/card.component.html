@@ -1,0 +1,29 @@
+<div class="card " >
+  <h1 [ngStyle]="{
+  color: _card.title.length < 5 ? 'green' : 'blue',
+  fontWeight: _card.title.length < 7 ? 'normal' : 'bold'
+  }">{{ index }}. {{ _card.title }}</h1>
+
+  <p [class.blue]="titleColor == 'blue'"
+     [class.red]="titleColor == 'red'"
+     [class.green]="titleColor == 'green'"
+  >{{ _card.text }}</p>
+
+  <button (click)="titleColor = 'blue'">Set blue</button>
+  <button (click)="titleColor = 'red'">Set blue</button>
+  <button (click)="titleColor = 'green'">Set blue</button>
+
+  <div class="buttons">
+    <img [src]="img" width="150px">
+  </div>
+  <button [disabled]="disabled">Click</button>
+
+  <button (click)="changeTitle()">Change title</button>
+  <button (click)="_card.title = 'Change title lll'">Change title lll</button>
+
+  <div>
+    <input type="text" (input)="inputTitle($event)" [value]="_card.title" >
+    <input [(ngModel)]="_card.text" (ngModelChange)="ngModelChangeText()">
+  </div>
+
+</div>
